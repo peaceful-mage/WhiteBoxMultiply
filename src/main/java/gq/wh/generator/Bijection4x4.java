@@ -1,4 +1,4 @@
-package generator;
+package gq.wh.generator;
 
 /**
  * Created by mr-guo on 2017/6/26.
