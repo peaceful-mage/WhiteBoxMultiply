@@ -11,4 +11,20 @@ public class Bijection5x5 {
         coding = new byte[32];
         invcoding = new byte[32];
     }
+
+    public byte[] getCoding() {
+        return coding;
+    }
+
+    public byte[] getInvcoding() {
+        return invcoding;
+    }
+
+    public void setCoding(byte[] coding) {
+        this.coding = coding;
+    }
+
+    public void setInvcoding(byte[] invcoding) {
+        this.invcoding = invcoding;
+    }
 }

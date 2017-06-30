@@ -4,6 +4,9 @@ import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After; 
 import static org.junit.Assert.*;
+
+import java.util.Random;
+
 /** 
 * Bijection4x4 Tester. 
 * 
@@ -21,12 +24,9 @@ public void after() throws Exception {
 }
 @Test
 public void testEqual(){
-    for (int i = 0; i < 128; i++) {
-        int a = i >> 4;
-        int b = i % 16;
-        int tempmul = a*b;
-        System.out.println("a : "+ a + " b : "+ b + " tempmul :"+tempmul);
-    }
+    byte tempb;
+    Random rand = new Random();
+
     assertEquals(1,17%16);
     assertTrue(true);
 }
