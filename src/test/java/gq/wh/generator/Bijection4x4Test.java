@@ -24,9 +24,13 @@ public void after() throws Exception {
 }
 @Test
 public void testEqual(){
-    byte tempb;
-    Random rand = new Random();
 
+    byte[] testA = new byte[]{1,2,3,4};
+    byte[] testB = new byte[]{5,6,7,8};
+    testB = testA;
+    for (int i = 0; i < testB.length; i++) {
+        System.out.println(testB[i]);
+    }
     assertEquals(1,17%16);
     assertTrue(true);
 }

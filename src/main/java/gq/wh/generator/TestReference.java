@@ -30,6 +30,8 @@ public class TestReference {
     }
     public static void main(String[] args) {
         TestReference testre = new TestReference();
-        testre.testRandom();
+//        testre.testRandom();
+        int A = 33;
+        System.out.println((A << 2)|(3& 0x3));
     }
 }

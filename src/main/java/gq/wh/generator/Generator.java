@@ -12,19 +12,17 @@ public class Generator {
     final static int BYTES = 8;
     final static int outbijecton = 4;
     final static int internalbijection = 16;
-    final static int codingsize = 5;
-    final static int[] type1num = new int[]{5,6,9,1,8,3,13,10};//两个一起来看,低位相加
+    final static int codingsize = 32;
+    final static int[] type1num = new int[]{6,5,1,9,3,8,10,13};//两个一起来看,低位相加
     final static int[] type1output = new int[]{8,10,12,14};
-    final static int[] type2num = new int[]{8,4,10,0,12,2,14,11};//两个一起来看，carry位和高位进位相加
+    final static int[] type2num = new int[]{4,8,0,10,2,12,11,14};//两个一起来看，carry位和高位进位相加
     final static int[] type2output = new int[]{9,11,13,15};
     final static int[] highCode = new int[]{0,2,0,3,1,2,1,3};//4 bit multiply 4 bit high sequence
     final static int[] lowCode = new int[]{0,2,0,3,1,2,1,3};//4 bit multiply 4 bit low sequence
     private WBMulti multi ;
     private Bijection5x5[] initinput;
     private Bijection5x5[] multibijections;
-    private SecureRandom random;
-
-    //TODO
+    private SecureRandom random = new SecureRandom();
 
     //generate  bijections
     public void generatebijections(){
@@ -34,9 +32,11 @@ public class Generator {
         GenUtils utils = new GenUtils();
         //assign value
         for (int i = 0; i < outbijecton; i++) {
+            initinput[i] = new Bijection5x5();
             utils.generate5x5bijection(initinput[i].getCoding(),initinput[i].getInvcoding(),codingsize,true,random);
         }
         for (int i = 0; i < internalbijection; i++) {
+            multibijections[i] = new Bijection5x5();
             utils.generate5x5bijection(multibijections[i].getCoding(),multibijections[i].getInvcoding(),codingsize,true,random);
         }
     }
@@ -47,7 +47,7 @@ public class Generator {
         byte lowbyte = (byte)( tempcode & 0x0000001f);
         highbyte = inputbijection[high].getCoding()[highbyte];
         lowbyte = inputbijection[low].getCoding()[lowbyte];
-        short encodedinput = (short)((highbyte << 5) & (lowbyte & 0x0000001f));
+        short encodedinput = (short)((highbyte << 5) | (lowbyte & 0x0000001f));
         return encodedinput;
     }
     //set up tables
@@ -119,5 +119,17 @@ public class Generator {
                 multi.getWBmultiply()[i+multi.MULTIPLYHIGH + multi.MULTIPLYLOW+multi.ADDTIMESTIMES].setValue(result,encodedinput);
             }
         }
+    }
+
+    public WBMulti getMulti() {
+        return multi;
+    }
+
+    public Bijection5x5[] getInitinput() {
+        return initinput;
+    }
+
+    public Bijection5x5[] getMultibijections() {
+        return multibijections;
     }
 }

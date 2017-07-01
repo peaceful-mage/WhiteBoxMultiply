@@ -20,7 +20,7 @@ public class GenUtils {
 
         for (int i = 0; i < size; i++) {
             byte temp;
-            int tempindex = secureRandom.nextInt(i);
+            int tempindex = secureRandom.nextInt(i+1);
 
             //change the value according to position
             temp = coding[i];
