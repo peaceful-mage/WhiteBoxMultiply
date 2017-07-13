@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 * WBMulti Tester. 
 * 
 * @author <Authors name> 
-* @since <pre>ÆßÔÂ 1, 2017</pre> 
+* @since <pre>ï¿½ï¿½ï¿½ï¿½ 1, 2017</pre> 
 * @version 1.0 
 */ 
 public class WBMultiTest { 
@@ -55,21 +55,21 @@ public void testWbMultiply() throws Exception {
     byte WBA,WBB,WBC,WBD;
     byte[] resultWB = new byte[4];
     short mulresult,WBresult;
-    for (int i = 0; i <64; i++) {
-        //È¡³öA,B
+    for (int i = 0; i <256; i++) {
+        //È¡ï¿½ï¿½A,B
         A = (byte)((i >> 4)&0x0000000f);
         encodedA = inputinit[0].getCoding()[A];
         B = (byte)(i & 0x0000000f);
         encodedB = inputinit[1].getCoding()[B];
-        for (int j = 0; j < 64; j++) {
-            //È¡³öC,D
+        for (int j = 0; j < 256; j++) {
+            //È¡ï¿½ï¿½C,D
             C = (byte)((j >> 4)&0x0000000f);
             encodedC = inputinit[2].getCoding()[C];
             D = (byte)(j & 0x0000000f);
             encodedD = inputinit[3].getCoding()[D];
-            //±È½Ï°×ºÐ»¯Ç°ºÍ°×ºÐ»¯ºói*jµÄ½á¹û
+            //ï¿½È½Ï°×ºÐ»ï¿½Ç°ï¿½Í°×ºÐ»ï¿½ï¿½ï¿½i*jï¿½Ä½ï¿½ï¿½
             resultWB = genMUL.getMulti().wbMultiply(encodedA,encodedB,encodedC,encodedD);
-            //È¡½á¹û£¬½â±àÂë£¬±È½Ï
+            //È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½È½ï¿½
             WBA = (byte)(multiBijections[15].getInvcoding()[resultWB[0]] & 0x0f);
             WBB = (byte)(multiBijections[14].getInvcoding()[resultWB[1]]& 0x0f);
             WBC = (byte)(multiBijections[12].getInvcoding()[resultWB[2]]& 0x0f);

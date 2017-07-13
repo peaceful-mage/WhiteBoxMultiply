@@ -24,13 +24,9 @@ public void after() throws Exception {
 }
 @Test
 public void testEqual(){
-
-    byte[] testA = new byte[]{1,2,3,4};
-    byte[] testB = new byte[]{5,6,7,8};
-    testB = testA;
-    for (int i = 0; i < testB.length; i++) {
-        System.out.println(testB[i]);
-    }
+    int  a = 222;
+    int b =  0x80000000;
+    System.out.println("b is " + b);
     assertEquals(1,17%16);
     assertTrue(true);
 }

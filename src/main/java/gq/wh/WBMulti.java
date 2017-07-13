@@ -73,7 +73,7 @@ public class WBMulti {
         WBresult[0]=WBtables[15];//白盒化后的A
         WBresult[1]=WBtables[14];//白盒化后的B
         WBresult[2]=WBtables[12];//白盒化后的C
-        WBresult[3]=WBtables[7];//白盒化后的D
+        WBresult[3]=WBtables[7]; //白盒化后的D
         return  WBresult;
     }
 }
